@@ -1,0 +1,40 @@
+{
+  "name": "spotify-match-maker",
+  "version": "1.0.0",
+  "description": "Spotify Match Maker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kpulkit29/Spotify-Match-Maker.git"
+  },
+  "keywords": [
+    "Spotify",
+    "Javascript",
+    "ML"
+  ],
+  "author": "kpulkit29",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kpulkit29/Spotify-Match-Maker/issues"
+  },
+  "homepage": "https://github.com/kpulkit29/Spotify-Match-Maker#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "style-loader": "^1.1.1",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
