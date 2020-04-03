@@ -1,0 +1,25 @@
+{
+  "name": "dev-plugin",
+  "version": "1.0.0",
+  "description": "rollup plugin for concatenation purpose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kpulkit29/plugin-concat.git"
+  },
+  "author": "Udit , Pulkit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kpulkit29/plugin-concat/issues"
+  },
+  "homepage": "https://github.com/kpulkit29/plugin-concat#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "typescript": "^3.8.3",
+    "rollup": "^2.3.2"
+  }
+}
