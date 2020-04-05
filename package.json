@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "tsc && rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
   "homepage": "https://github.com/kpulkit29/plugin-concat#readme",
   "devDependencies": {},
   "dependencies": {
-    "typescript": "^3.8.3",
-    "rollup": "^2.3.2"
+    "fs": "0.0.1-security",
+    "rollup": "^2.3.2",
+    "typescript": "^3.8.3"
   }
 }
