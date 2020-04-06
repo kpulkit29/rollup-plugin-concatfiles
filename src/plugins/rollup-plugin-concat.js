@@ -25,46 +25,48 @@ export default function myExample(useroptions) {
             return null;
         },
         writeBundle: function (code) {
-            let data ='';
-            for(var prop in useroptions){
-                if(useroptions.hasOwnProperty(prop)) {
-                    if(prop.toLowerCase() === 'footer') {
-                        data+= fs.readFileSync('dist/abc.js','utf8')+ "\n";
-                    } else if(prop.toLowerCase() === 'files') {
-                        for(var key in useroptions[prop]) {
-                            var fileToCreate = useroptions[prop][key];
-                            fileToCreate.forEach(function(fileName) {
-                                if(path.extname(fileName)) {
-                                    data+= fs.readFileSync(fileName,'utf8');
-                                } else {
-                                    data+=  fileName;
-                                }                               
-                            })
-                            try {
-                                fs.writeFileSync(key,data);                            
-                            } catch (error) {
-                                fs.mkdirSync("temp", {recursive: true})
-                                fs.writeFileSync(key,data); 
-                            }
-
-                            console.log(data + "sdsddsdsds");
-                        }
-                    } else {
+            console.log("code is ", fs.readFileSync('dist/abc.js','utf8'));
+            console.log(useroptions.files)
+            if(useroptions.files) {
+                for(var property in useroptions.files) {
+                    var content = concatdata(useroptions.files[property]);   
+                    console.log(content); 
+                    if(path.extname(property)) {
+                        let directorpath = property.substring(0, property.lastIndexOf('/'));
+                        console.log("property is ", property)
+                        console.log("directory is ", directorpath);
+                        if( !fs.existsSync(directorpath)) {
+                            fs.mkdirSync(directorpath, { recursive: true });
+                        } 
+                        fs.writeFileSync(property,content,(error) => {
+                            console.log(error)
+                        })
+                    }
+                   
+                }
+            }
+            
+            function concatdata(obj) {
+                let data = '';
+                for(var prop in obj)
+                {
+                    if(obj.hasOwnProperty(prop)) {
+                        // console.log("prop is", prop, "length is ", obj[prop].length);
+                        console.log(obj[prop].length)
                         var index = 0;
-                        while(index < useroptions[prop].length ) {
-                            if(path.extname(useroptions[prop][index])) {
-                                data+= fs.readFileSync(useroptions[prop][index],'utf8') + "\n";
+                        const objlength = obj[prop] && obj[prop].length;
+                        while(index < objlength ) {
+                            if(path.extname(obj[prop][index])) {
+                                data+= fs.readFileSync(obj[prop][index],'utf8') + "\n";
                             } else {
-                                data+= useroptions[prop][index]+"\n";
+                                data+= obj[prop][index]+"\n";
                             }
                             index++;
                         }
                     }
-
                 }
-                //fs.writeFileSync('dist/abcd.js',data);
+                return data;
             }
-            //console.log(data);
         }
     };
 }
