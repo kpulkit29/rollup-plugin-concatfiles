@@ -8,8 +8,13 @@ export default [
     },
     plugins: [
       myExample({
-        banner: ["hey", "src/init.js"],
-        footer: ["src/core.js"]
+        files: {
+            "dist/abc.js": ["//We are here","dist/abc.js"],
+            "temp/abcd.js": ["//We are here","dist/abc.js"],
+            "temp/temp.js": ["//We are here","dist/abc.js"]
+        }
+        // banner: ["hey", "src/init.js"],
+        // footer: ["src/core.js"]
       })
     ]
   }
