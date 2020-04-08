@@ -5,11 +5,12 @@ export default [
     output: {
       file: "dist/abc.js",
       format: "iife",
+      sourceMap: true
     },
     plugins: [
       myExample({
         files: {
-            "dist/abc.js": {
+            "./dist/abc.js": {
               banner:["nefbbeegibg"],
               concatFiles:['src/init.js'],
               footer:["fnnwfiunui"]
