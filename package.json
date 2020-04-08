@@ -17,7 +17,9 @@
     "url": "https://github.com/kpulkit29/plugin-concat/issues"
   },
   "homepage": "https://github.com/kpulkit29/plugin-concat#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^7.1.1"
+  },
   "dependencies": {
     "rollup": "^2.3.2"
   }
