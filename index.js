@@ -1,3 +1,4 @@
+/* eslint-disable */
 const fs = require("fs");
 const path = require("path");
 
@@ -8,6 +9,7 @@ const path = require("path");
  */
 function concatdata(obj) {
     let data = '';
+    console.log(obj);
     for(let prop in obj)
     {
         const objlength = obj[prop] && obj[prop].length;
@@ -18,7 +20,7 @@ function concatdata(obj) {
                  * if file is not a javascript file it is assumed that is is a string 
                  * to be appended directly
                  */
-                if(path.extname(fileName) === ".js") {
+                if(path.extname(fileName) === ".js" || path.extname(fileName) === ".txt") {
                     data+= fs.readFileSync(fileName,'utf8') + "\n";
                 } else {
                     data+= fileName + "\n";
@@ -36,6 +38,7 @@ export default function concatFiles(useroptions) {
     return {
         name: 'rollup-plugin-concatFiles',
         writeBundle: function (code) {
+            console.log(useroptions);
             if(useroptions.files) {
                 for(let concatinatedFile in useroptions.files) {
                     let content = concatdata(useroptions.files[concatinatedFile]);  

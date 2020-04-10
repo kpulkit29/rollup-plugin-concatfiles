@@ -4,8 +4,9 @@
   "description": "rollup plugin for concatenation purpose",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c rollup.config.js"
+    "test": "jest",
+    "build": "rollup -c rollup.config.js",
+    "lint": "eslint"
   },
   "husky": {
     "hooks": {
@@ -25,9 +26,13 @@
   "devDependencies": {
     "eslint": "^6.8.0",
     "husky": "^4.2.4",
-    "mocha": "^7.1.1"
+    "jest": "^25.3.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "babel-jest": "^24.0.0"
   },
   "dependencies": {
+    "eslint-plugin-jest": "^23.8.2",
     "rollup": "^2.3.2"
   }
 }
