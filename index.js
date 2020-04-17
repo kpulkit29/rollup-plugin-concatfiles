@@ -1,4 +1,3 @@
-/* eslint-disable */
 const fs = require("fs");
 const path = require("path");
 
@@ -9,7 +8,6 @@ const path = require("path");
  */
 function concatdata(obj) {
     let data = '';
-    console.log(obj);
     for(let prop in obj)
     {
         const objlength = obj[prop] && obj[prop].length;
@@ -34,11 +32,10 @@ function concatdata(obj) {
 }
 
 
-export default function concatFiles(useroptions) {
+function concatFiles(useroptions) {
     return {
-        name: 'rollup-plugin-concatFiles',
-        writeBundle: function (code) {
-            console.log(useroptions);
+        name: 'rollup-plugin-concatfiles',
+        writeBundle: function () {
             if(useroptions.files) {
                 for(let concatinatedFile in useroptions.files) {
                     let content = concatdata(useroptions.files[concatinatedFile]);  
@@ -48,16 +45,21 @@ export default function concatFiles(useroptions) {
                      * then it would be created recursively
                      *  */ 
                     if(path.extname(concatinatedFile) == ".js") {
-                        let directorpath = concatinatedFile.substring(0, concatinatedFile.lastIndexOf('/'));
-                        if( !fs.existsSync(directorpath)) {
+                        let directorpath = concatinatedFile.substring(0, concatinatedFile.lastIndexOf("/"));
+                        if(directorpath !== "" && !fs.existsSync(directorpath) ) {
                             fs.mkdirSync(directorpath, { recursive: true });
                         } 
-                        fs.writeFileSync(concatinatedFile,content)
+                        fs.writeFileSync(concatinatedFile,content);
                     }
                 }
 
+            } else {
+                console.log('\x1b[31m%s\x1b[0m', "please enter in the valid format as per the readme."); 
+                
             }
 
         }
     };
 }
+
+exports.concatFiles = concatFiles;

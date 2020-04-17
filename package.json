@@ -1,38 +1,52 @@
 {
-  "name": "dev-plugin",
-  "version": "1.0.0",
+  "name": "rollup-plugin-concatfiles",
+  "version": "1.0.2",
   "description": "rollup plugin for concatenation purpose",
   "main": "index.js",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
   "scripts": {
     "test": "jest",
     "build": "rollup -c rollup.config.js",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
   },
   "husky": {
     "hooks": {
-      "pre-push": "eslint test/**"
+      "pre-push": "eslint '**/*.js'"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kpulkit29/plugin-concat.git"
+    "url": "git+https://github.com/kpulkit29/rollup-plugin-concatfiles.git"
   },
   "author": "Udit , Pulkit",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kpulkit29/plugin-concat/issues"
+    "url": "https://github.com/kpulkit29/rollup-plugin-concatfiles/issues"
   },
-  "homepage": "https://github.com/kpulkit29/plugin-concat#readme",
+  "homepage": "https://github.com/kpulkit29/rollup-plugin-concatfiles#readme",
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "husky": "^4.2.4",
-    "jest": "^25.3.0",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
-    "babel-jest": "^24.0.0"
+    "babel-jest": "^24.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
+    "fs-extra": "^9.0.0",
+    "husky": "^4.2.4",
+    "jest": "^25.3.0"
   },
   "dependencies": {
-    "eslint-plugin-jest": "^23.8.2",
     "rollup": "^2.3.2"
-  }
+  },
+  "keywords": [
+    "Rollup",
+    "Rollup-Plugin",
+    "Rollup-Plugin-concat",
+    "Rollup-Plugin-concatFiles"
+  ]
 }
